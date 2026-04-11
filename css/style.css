@@ -270,26 +270,28 @@ body {
 }
 
 .modal-close-btn {
-  background: none;
-  border: none;
-  font-size: 1.4rem;
-  line-height: 1;
-  cursor: pointer;
-  color: #5b6f7e;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 20px;
-  transition: background 0.1s;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #5b6f7e;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    transition: background 0.1s;
 }
+
 .modal-close-btn:hover {
-  background: rgba(0,0,0,0.03);
+    background: rgba(0, 0, 0, 0.02);
 }
+/* 移除了激活态的阴影和颜色变化 */
 .modal-close-btn:active {
-  background: rgba(0,188,190,0.1);
-  color: #008b8d;
+    background: transparent;
+    color: #5b6f7e;
 }
 
 /* 主体区域 */
