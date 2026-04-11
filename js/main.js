@@ -46,20 +46,24 @@
   contactBtn.addEventListener('click', () => openModal('contactModal'));
   noticeBtn.addEventListener('click', () => openModal('noticeModal'));
 
-  // ----- 关闭按钮事件：使用事件委托 (稳定可靠) -----
+  // ----- 关闭按钮事件委托（稳定可靠）-----
   document.addEventListener('click', function(e) {
-    // 查找被点击的元素或其父级是否带有 data-close 属性
     const closeTrigger = e.target.closest('[data-close]');
     if (closeTrigger) {
-      e.preventDefault();  // 防止任何默认行为
-      e.stopPropagation(); // 避免意外触发其他事件
+      e.preventDefault();
+      e.stopPropagation(); // 防止意外触发其他监听器
       const modalId = closeTrigger.getAttribute('data-close');
       closeModal(modalId);
     }
   });
 
-  // 点击遮罩层关闭所有模态框
-  overlay.addEventListener('click', closeAllModals);
+  // ----- 点击遮罩层关闭模态框（仅当点击的是遮罩本身，而不是内部内容）-----
+  overlay.addEventListener('click', function(e) {
+    // 只有当点击的目标是遮罩层本身（而不是冒泡上来的子元素）时才关闭
+    if (e.target === overlay) {
+      closeAllModals();
+    }
+  });
 
   // 键盘 ESC 关闭所有模态框
   document.addEventListener('keydown', (e) => {
@@ -68,10 +72,7 @@
     }
   });
 
-  // 阻止模态框内部点击事件冒泡到遮罩层（避免误关闭）
-  document.querySelectorAll('.modal-card').forEach(card => {
-    card.addEventListener('click', (e) => e.stopPropagation());
-  });
+  // 注意：不再阻止模态框内部点击事件的冒泡，以便关闭按钮能正常工作。
 
   // ----- 数据加载与卡片渲染 -----
   let categoriesData = [];
@@ -162,7 +163,7 @@
 
       // 点击卡片打开分类详情模态框
       card.addEventListener('click', (e) => {
-        e.stopPropagation();
+        e.stopPropagation(); // 防止意外触发其他事件，但不影响内部关闭按钮的委托
         openCategoryModal(cat);
       });
 
@@ -203,7 +204,5 @@
 
   // 启动数据加载
   loadData();
-
-  // 动态生成的关闭按钮也能通过事件委托正常工作，无需额外处理
 
 })();
