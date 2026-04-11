@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>YUKI-Persona-Guide · 人设指南</title>
+  <!-- 极简线条风格，副色 #00BCBE，主体米白/白 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- 主样式 -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 灰色遮罩层 (模态框背景) -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+
+  <!-- ========== 顶部状态条 ========= -->
+  <header class="status-bar">
+    <div class="status-left">
+      <button class="icon-btn" id="contactBtn" aria-label="联系我">
+        <i class="far fa-envelope"></i>
+      </button>
+    </div>
+    <div class="status-title">YUKI-Persona-Guide</div>
+    <div class="status-right">
+      <button class="icon-btn" id="noticeBtn" aria-label="相关事项">
+        <i class="far fa-bell"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========== 主内容 ========= -->
+  <main class="main-content">
+    <!-- 顶部大图 -->
+    <div class="hero-image-container">
+      <img 
+        src="images/hero.jpg" 
+        alt="封面图 · 1806x1024" 
+        class="hero-image"
+        onerror="this.style.backgroundColor='#eaeef2'; this.style.minHeight='180px'; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221806%22%20height%3D%221024%22%3E%3Crect%20width%3D%221806%22%20height%3D%221024%22%20fill%3D%22%23d4e0e8%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22530%22%20font-family%3D%22system-ui%22%20font-size%3D%2242%22%20fill%3D%22%235f7d9c%22%3E1806%C3%971024%3C%2Ftext%3E%3C%2Fsvg%3E'"
+      >
+    </div>
+
+    <!-- 五行介绍/事项文本区 (预留) -->
+    <div class="intro-lines">
+      <p class="intro-line">✨ 欢迎来到 YUKI 人设指南 · 从零到高阶的创作伙伴</p>
+      <p class="intro-line">📘 这里整理了角色设定、对话风格与常见问题的系统思路</p>
+      <p class="intro-line">🛠️ 下方六个板块覆盖新手到进阶，点击任意卡片查看具体条目</p>
+      <p class="intro-line">📌 所有链接均可自定义，数据通过 JSON 统一管理，方便更新</p>
+      <p class="intro-line">⚡ 建议先阅读“新手入门~”，黄色星标代表重点推荐</p>
+    </div>
+
+    <!-- 六个正方形分类卡片 (grid) -->
+    <div class="cards-grid" id="cardsGrid">
+      <!-- 卡片会通过 JS 动态渲染，保证结构与 JSON 同步，同时也保留静态备用 -->
+    </div>
+  </main>
+
+  <!-- ========== 模态框：联系我 ========= -->
+  <div class="modal-container" id="contactModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <span class="modal-header-title">联系我</span>
+        <button class="modal-close-btn" data-close="contactModal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="contact-content">
+          <p style="margin-top: 0; color: #2e3b4e;">📬 你可以通过以下方式找到我：</p>
+          <ul class="contact-list">
+            <li><i class="far fa-envelope" style="color: #00BCBE; width: 1.6rem;"></i> yuki.guide@persona.work</li>
+            <li><i class="fab fa-twitter" style="color: #00BCBE; width: 1.6rem;"></i> @YUKI_Persona</li>
+            <li><i class="fab fa-discord" style="color: #00BCBE; width: 1.6rem;"></i> YUKI 服务器 (邀请码见社群)</li>
+            <li><i class="fas fa-globe" style="color: #00BCBE; width: 1.6rem;"></i> yuki-persona.wiki</li>
+          </ul>
+          <p style="font-size: 0.85rem; color: #5f6c7a; margin-bottom: 0;">回复时间：工作日 10:00–18:00</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 模态框：相关事项 (须知，支持滚动条) ========= -->
+  <div class="modal-container" id="noticeModal">
+    <div class="modal-card notice-modal">
+      <div class="modal-header">
+        <span class="modal-header-title">📋 相关事项 & 注意</span>
+        <button class="modal-close-btn" data-close="noticeModal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body notice-body">
+        <!-- 这里会写比较多的内容，内置滚动 -->
+        <h4 style="margin-top: 0; font-weight: 500;">使用前请阅读</h4>
+        <ul style="padding-left: 1.2rem; margin-bottom: 1.5rem;">
+          <li>本指南内容基于社区共创，持续更新。</li>
+          <li>“新手入门~”带有⭐标记，建议优先阅读。</li>
+          <li>每个分类卡片内包含5个常用链接，点击直接跳转。</li>
+          <li>手机端两列展示，电脑端三列，触感清爽。</li>
+          <li>所有数据存放在 <code>data.json</code>，修改即可更新列表。</li>
+        </ul>
+        <h4 style="font-weight: 500;">📌 数据更新说明</h4>
+        <p>若需增删改分类下的链接，直接编辑 <code>data.json</code> 中对应 <code>items</code> 数组即可，无需改动HTML。每个条目包含 <code>text</code> 和 <code>url</code>。</p>
+        <h4 style="font-weight: 500;">🧩 样式微调</h4>
+        <p>主色调为极简白 + 青色(#00BCBE)点缀。模态框采用小圆角(6px)，干净利落。状态条为米白色(#F7F6F2)。</p>
+        <h4 style="font-weight: 500;">📱 适配特性</h4>
+        <p>优先手机设计，电脑端图片宽度约为屏幕1/3并居中。所有触摸区域均足够大。</p>
+        <p style="margin-bottom: 0;">——— 更多事项会在此滚动显示 ———</p>
+        <p>若有任何问题，请通过“联系我”模态框沟通。感谢使用。</p>
+        <p style="color: #4a5a6a;">(你可以继续扩充内容，滚动条会自动出现)</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 模态框：分类详情 (动态填充) ========= -->
+  <div class="modal-container" id="categoryModal">
+    <div class="modal-card category-detail-modal">
+      <div class="modal-header category-modal-header">
+        <span class="modal-header-title" id="categoryModalTitle">新手入门~</span>
+        <button class="modal-close-btn" data-close="categoryModal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body category-modal-body">
+        <ul class="category-link-list" id="categoryLinkList">
+          <!-- JS 动态填充列表项 -->
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>
