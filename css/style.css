@@ -171,8 +171,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f9fbfc;  /* 极浅灰底，衬托图片 */
-  position: relative;
+  background: #f9fbfc;
+  position: relative;      /* 为占位符提供定位参考 */
+  overflow: hidden;        /* 防止任何内容意外溢出 */
 }
 
 .card-img-wrapper img {
