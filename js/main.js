@@ -72,8 +72,6 @@
     }
   });
 
-  // 注意：不再阻止模态框内部点击事件的冒泡，以便关闭按钮能正常工作。
-
   // ----- 数据加载与卡片渲染 -----
   let categoriesData = [];
 
@@ -156,14 +154,38 @@
         card.appendChild(starIcon);
       }
 
+      // 图片容器
+      const imgWrapper = document.createElement('div');
+      imgWrapper.className = 'card-img-wrapper';
+      const img = document.createElement('img');
+      img.src = `images/card-${cat.id}.jpg`;
+      img.alt = cat.title;
+      img.loading = 'lazy';
+      img.onerror = function() {
+        // 加载失败时显示占位图标
+        this.style.display = 'none';
+        const placeholder = document.createElement('div');
+        placeholder.className = 'card-img-placeholder';
+        placeholder.innerHTML = '<i class="fas fa-image"></i>';
+        if (!imgWrapper.contains(placeholder)) {
+          imgWrapper.appendChild(placeholder);
+        }
+      };
+      imgWrapper.appendChild(img);
+      card.appendChild(imgWrapper);
+
+      // 底部标题栏（白色背景）
+      const titleBar = document.createElement('div');
+      titleBar.className = 'card-title-bar';
       const titleSpan = document.createElement('span');
       titleSpan.className = 'card-title';
       titleSpan.textContent = cat.title;
-      card.appendChild(titleSpan);
+      titleBar.appendChild(titleSpan);
+      card.appendChild(titleBar);
 
       // 点击卡片打开分类详情模态框
       card.addEventListener('click', (e) => {
-        e.stopPropagation(); // 防止意外触发其他事件，但不影响内部关闭按钮的委托
+        e.stopPropagation();
         openCategoryModal(cat);
       });
 

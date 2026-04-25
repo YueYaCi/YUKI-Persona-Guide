@@ -1,8 +1,6 @@
-/* css/style.css */
-/* 极简白 + 青色 #00BCBE，线条干净，小圆角 */
 :root {
   --bg-body: #FFFFFF;
-  --bg-status: #F7F6F2;      /* 米白色顶部条 */
+  --bg-status: #F7F6F2;      /* 顶部条 */
   --accent-cyan: #00BCBE;
   --text-primary: #1E2A36;
   --text-secondary: #4F5E6B;
@@ -10,7 +8,7 @@
   --gray-muted: #F0F3F5;
   --modal-header-bg: #F4F6F8;  /* 浅灰头 */
   --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.04);
-  --radius-sm: 6px;            /* 较小圆弧，几何感 */
+  --radius-sm: 6px;
   --radius-md: 10px;
   --transition: all 0.15s ease;
 }
@@ -113,7 +111,6 @@ body {
   box-shadow: var(--shadow-sm);
 }
 
-/* 电脑端：图片宽度约为屏幕1/3，且居中；手机端自然铺满 */
 @media (min-width: 768px) {
   .hero-image {
     width: 33.333%;
@@ -122,7 +119,7 @@ body {
   }
 }
 
-/* 五行介绍文本 */
+/* 主页的五行文本 */
 .intro-lines {
   margin: 24px 0 28px;
   padding: 0 4px;
@@ -151,7 +148,6 @@ body {
   background: #FFFFFF;
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
-  padding: 16px 12px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -159,7 +155,8 @@ body {
   transition: transform 0.1s, border-color 0.1s;
   cursor: pointer;
   user-select: none;
-  /* 无悬浮效果，只保留点击动画 */
+  overflow: hidden;   /* 保证圆角裁边 */
+  padding: 0;
 }
 .category-card:active {
   transform: scale(0.98);
@@ -167,19 +164,53 @@ body {
   background-color: #fbfdff;
 }
 
-/* 卡片标题 */
+/* 图片包裹（填充卡片上部，四周留小间距） */
+.card-img-wrapper {
+  flex: 1;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9fbfc;  /* 极浅灰底，衬托图片 */
+  position: relative;
+}
+
+.card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* 图片完整显示，保持正方形比例 */
+  border-radius: 4px;
+}
+
+/* 图片加载失败时的占位元素 */
+.card-img-placeholder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+  color: #ccc;
+}
+
+/* 底部白色标题栏（类似状态条效果） */
+.card-title-bar {
+  background: #FFFFFF;
+  padding: 10px 12px;
+  border-top: 1px solid var(--border-light);
+  flex-shrink: 0;
+}
+
+/* 卡片标题文字 */
 .card-title {
   font-size: 0.95rem;
   font-weight: 540;
   line-height: 1.35;
   color: #1E2A36;
   word-break: break-word;
-  margin-top: auto;  /* 让标题靠近底部，但也可灵活 */
-  align-self: flex-start;
-  max-width: 90%;
+  display: block;
 }
 
-/* 星标图标 (左上角) */
+/* 星标图标 (左上角，独立于卡片流) */
 .card-star {
   position: absolute;
   top: 10px;
@@ -190,7 +221,7 @@ body {
   z-index: 2;
 }
 
-/* 电脑端三列 */
+/* 电脑端，三列 */
 @media (min-width: 640px) {
   .cards-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -237,7 +268,7 @@ body {
   pointer-events: auto;
 }
 
-/* 模态卡片 —— 简洁几何，小圆角 */
+/* 模态卡片 */
 .modal-card {
   background: #FFFFFF;
   width: 100%;
@@ -257,7 +288,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 14px 18px;
-  background: #F3F5F7;   /* 较淡的灰色 */
+  background: #F3F5F7;
   border-bottom: 1px solid var(--border-light);
   border-radius: var(--radius-sm) var(--radius-sm) 0 0;
 }
@@ -288,7 +319,7 @@ body {
 .modal-close-btn:hover {
     background: rgba(0, 0, 0, 0.02);
 }
-/* 移除了激活态的阴影和颜色变化 */
+
 .modal-close-btn:active {
     background: transparent;
     color: #5b6f7e;
@@ -301,7 +332,7 @@ body {
   color: #2e3f4e;
 }
 
-/* 须知模态框专用滚动 (更明显滚动条) */
+/* 须知模态框滚动条 */
 .notice-body {
   max-height: 60vh;
   overflow-y: auto;
@@ -320,7 +351,7 @@ body {
   border-radius: 10px;
 }
 
-/* 分类模态框 —— 与联系/须知有微妙不同：头部背景稍深一点点，但依然和谐 */
+/* 分类模态框 */
 .category-modal-header {
   background: #EAEFF3; 
 }
