@@ -93,18 +93,18 @@
   function getFallbackCategories() {
     return [
       { id: 'beginner', title: '新手入门~', star: true, items: [
-        { text: 'Step 1：认识存档文件（写完了，但是我还没上传仓库... ）', url: '#' },
-        { text: 'Step 2：如何找到我的存档？（写完了，但是我还没上传仓库... ）', url: '#' },
+        { text: 'Step 1：认识存档文件', url: '#' },
+        { text: 'Step 2：如何找到我的存档？', url: '#' },
         { text: 'Step 3：我该修改哪里？（对不起,我还没写完...）', url: '#' },
         { text: '须知（对不起,我还没写完...）', url: '#' },
-        { text: '实用工具（对不起,我还没写完...）', url: '#' }
+        { text: '实用工具（写完了，但是我还没上传仓库... ）', url: '#' }
       ]},
       { id: 'data', title: '游戏内常见数据', star: false, items: [
-        { text: '📊 属性阈值表', url: '#' },
-        { text: '🗺️ 地图机制', url: '#' },
-        { text: '⚔️ 战斗公式', url: '#' },
-        { text: '🧪 物品数据', url: '#' },
-        { text: '📈 成长曲线', url: '#' }
+        { text: '对不起,我还没写完...', url: '#' },
+        { text: '对不起,我还没写完...', url: '#' },
+        { text: '对不起,我还没写完...', url: '#' },
+        { text: '对不起,我还没写完...', url: '#' },
+        { text: '对不起,我还没写完...', url: '#' }
       ]},
       { id: 'basic', title: '基础：简单人设调整', star: false, items: [
         { text: '对不起,我还没写完...', url: '#' },
