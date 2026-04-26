@@ -93,11 +93,11 @@
   function getFallbackCategories() {
     return [
       { id: 'beginner', title: '新手入门~', star: true, items: [
-        { text: '⏯️ 快速上手指南', url: '#' },
-        { text: '📝 设定模板下载', url: '#' },
-        { text: '🎭 世界观基础', url: '#' },
-        { text: '🔰 避免常见错误', url: '#' },
-        { text: '📚 推荐阅读顺序', url: '#' }
+        { text: 'Step 1：认识存档文件（写完了，但是我还没上传仓库... ）', url: '#' },
+        { text: 'Step 2：如何找到我的存档？（写完了，但是我还没上传仓库... ）', url: '#' },
+        { text: 'Step 3：我该修改哪里？（对不起,我还没写完...）', url: '#' },
+        { text: '须知（对不起,我还没写完...）', url: '#' },
+        { text: '实用工具（对不起,我还没写完...）', url: '#' }
       ]},
       { id: 'data', title: '游戏内常见数据', star: false, items: [
         { text: '📊 属性阈值表', url: '#' },
@@ -107,32 +107,32 @@
         { text: '📈 成长曲线', url: '#' }
       ]},
       { id: 'basic', title: '基础：简单人设调整', star: false, items: [
-        { text: '✏️ 性格标签微调', url: '#' },
-        { text: '💬 口癖与语气', url: '#' },
-        { text: '🎨 外观微调思路', url: '#' },
-        { text: '🔄 关系网调整', url: '#' },
-        { text: '🧰 工具推荐', url: '#' }
+        { text: '对不起,我还没写完...', url: '#' },
+        { text: '对不起,我还没写完...', url: '#' },
+        { text: '对不起,我还没写完...', url: '#' },
+        { text: '对不起,我还没写完...', url: '#' },
+        { text: '对不起,我还没写完...', url: '#' }
       ]},
-      { id: 'pro', title: '大佬改人设心得', star: false, items: [
-        { text: '🌟 深度访谈技巧', url: '#' },
-        { text: '🧠 心理动机设计', url: '#' },
-        { text: '🎯 矛盾塑造', url: '#' },
-        { text: '📖 弧光案例', url: '#' },
-        { text: '🖋️ 文风统一', url: '#' }
+      { id: 'pro', title: '一些大佬的改人设小技巧', star: false, items: [
+        { text: '对不起,我还没写完...', url: '#' },
+        { text: '对不起,我还没写完...', url: '#' },
+        { text: '对不起,我还没写完...', url: '#' },
+        { text: '对不起,我还没写完...', url: '#' },
+        { text: '对不起,我还没写完...', url: '#' }
       ]},
-      { id: 'advanced', title: '进阶：字数和多人设等', star: false, items: [
-        { text: '📏 字数控制策略', url: '#' },
-        { text: '👥 多人设互动', url: '#' },
-        { text: '🕹️ 分支管理', url: '#' },
-        { text: '🧩 记忆与一致性', url: '#' },
-        { text: '🔁 动态调整', url: '#' }
+      { id: 'advanced', title: '进阶：状态栏和多人设等', star: false, items: [
+        { text: '对不起,我还没写完...', url: '#' },
+        { text: '对不起,我还没写完...', url: '#' },
+        { text: '对不起,我还没写完...', url: '#' },
+        { text: '对不起,我还没写完...', url: '#' },
+        { text: '对不起,我还没写完...', url: '#' }
       ]},
       { id: 'faq', title: '人设常见问题解疑', star: false, items: [
-        { text: '❓ OOC怎么办', url: '#' },
-        { text: '🔄 人设冲突处理', url: '#' },
-        { text: '📞 反馈渠道', url: '#' },
-        { text: '🛠️ 修复工具', url: '#' },
-        { text: '📌 常见误区', url: '#' }
+        { text: '对不起,我还没写完...', url: '#' },
+        { text: '对不起,我还没写完...', url: '#' },
+        { text: '对不起,我还没写完...', url: '#' },
+        { text: '对不起,我还没写完...', url: '#' },
+        { text: '对不起,我还没写完...', url: '#' }
       ]}
     ];
   }
