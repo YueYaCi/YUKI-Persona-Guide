@@ -6,12 +6,12 @@
       "star": true,
       "items": [
         {
-          "text": "Step 1：认识存档文件（写完了，但是我还没上传仓库... ）",
+          "text": "Step 1：认识存档文件",
           "url": "https://yueyaci.github.io/YUKI-Persona-Guide/PDF/Step 1：认识存档文件.pdf"
         },
         {
-          "text": "Step 2：如何找到我的存档？（写完了，但是我还没上传仓库... ）",
-          "url": "https://example.com/"
+          "text": "Step 2：如何找到我的存档？",
+          "url": "https://yueyaci.github.io/YUKI-Persona-Guide/PDF/Step 2：如何找到我的存档.pdf"
         },
         {
           "text": "Step 3：我该修改哪里？（对不起,我还没写完...）",
@@ -22,7 +22,7 @@
           "url": "https://example.com/"
         },
         {
-          "text": "实用工具（对不起,我还没写完...）",
+          "text": "实用工具（写完了，但是我还没上传仓库... ）",
           "url": "https://example.com/"
         }
       ]
